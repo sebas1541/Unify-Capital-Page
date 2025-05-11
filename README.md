@@ -22,8 +22,8 @@ Before you begin, ensure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/car-down-payment-loans.git
-cd car-down-payment-loans
+git clone https://github.com/sebas1541/Unify-Capital-Page
+cd Unify-Capital-Page
 ```
 
 ### Install Dependencies
@@ -32,16 +32,6 @@ cd car-down-payment-loans
 npm install
 # or
 yarn install
-```
-
-### Environment Setup
-
-Create a `.env` file in the root directory and add your environment variables:
-
-```env
-VITE_API_URL=your_api_url_here
-VITE_ANALYTICS_ID=your_analytics_id_here
-# Add other environment variables as needed
 ```
 
 ### Run the Development Server
@@ -59,26 +49,52 @@ The application will open at `http://localhost:5173`
 This project follows a **feature-based module architecture**, where features are organized into self-contained modules:
 
 ```
-src/
-├── components/           # Shared UI components
-│   ├── common/
-│   ├── forms/
-│   └── layout/
-├── features/            # Feature-based modules
-│   ├── loan-application/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── types/
-│   │   └── utils/
-│   ├── dashboard/
-│   ├── auth/
-│   └── home/
-├── hooks/               # Global custom hooks
-├── types/               # Global TypeScript type definitions
-├── utils/               # Utility functions
-├── styles/              # Global styles and Tailwind config
-├── assets/              # Static assets (images, icons, etc.)
-└── App.tsx
+├── src
+│   ├── App.tsx
+│   ├── app
+│   │   └── App.tsx
+│   ├── common
+│   │   ├── components
+│   │   │   ├── Button
+│   │   │   │   └── Button.tsx
+│   │   │   ├── Container
+│   │   │   │   └── Container.tsx
+│   │   │   ├── Hero
+│   │   │   │   └── Hero.tsx
+│   │   │   ├── LoadingSpinner
+│   │   │   │   └── LoadingSpinner.tsx
+│   │   │   ├── Logo
+│   │   │   │   └── Logo.tsx
+│   │   │   └── Navbar
+│   │   │       └── Navbar.tsx
+│   │   └── hooks
+│   │       ├── useIntersectionObserver.ts
+│   │       └── useScrollToTop.ts
+│   ├── components
+│   │   ├── Form.js
+│   │   └── Landing.js
+│   ├── features
+│   │   ├── form
+│   │   │   └── components
+│   │   │       └── FormPage.tsx
+│   │   └── landing
+│   │       └── components
+│   │           ├── ApplicationForm
+│   │           │   └── ApplicationForm.tsx
+│   │           ├── FeatureSection
+│   │           │   └── FeatureSection.tsx
+│   │           ├── Footer
+│   │           │   └── Footer.tsx
+│   │           ├── LandingPage.tsx
+│   │           ├── LoanCalculator
+│   │           │   └── LoanCalculator.tsx
+│   │           └── TestimonialSection
+│   │               └── TestimonialSection.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   ├── utils
+│   │   └── cn.ts
+│   └── vite-env.d.ts
 ```
 
 ### Architecture Explanation
@@ -160,13 +176,6 @@ The built files will be in the `dist` directory.
 - Add JSDoc comments for complex functions
 - Keep components small and focused
 
-## 📝 Environment Variables
-
-```env
-VITE_API_URL=                    # API endpoint URL
-VITE_ANALYTICS_ID=              # Analytics tracking ID
-VITE_ENVIRONMENT=               # development | staging | production
-```
 
 ## 🔍 Troubleshooting
 
@@ -177,15 +186,12 @@ VITE_ENVIRONMENT=               # development | staging | production
 3. **TypeScript errors:** Run `npm run type-check` to identify issues
 4. **Build failures:** Check console for specific errors and ensure all dependencies are installed
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👥 Team
 
-- **Project Lead:** Your Name
-- **Frontend Developer:** Your Name
-- **UI/UX Designer:** Your Name
+- **Project Lead:** Sebastián Cañón Castellanos
+- **Frontend Developer:** Sebastián Cañón Castellanos
+- **UI/UX Designer:** Sebastián Cañón Castellanos
 
 ## 📞 Support
 
