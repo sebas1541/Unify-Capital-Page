@@ -10,6 +10,10 @@ export const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isFormPage = location.pathname === '/apply';
+  const isPolicyAgreementPage = location.pathname === '/legal-agreement';
+
+  const legalPagePaths = ['/privacy', '/terms', '/disclaimer'];
+  const isLegalPage = legalPagePaths.includes(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,18 +23,22 @@ export const Navbar: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [scrolled]);
+    // Only add scroll listener if not on a page that always has the dark variant
+    if (!isFormPage && !isLegalPage && !isPolicyAgreementPage) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [scrolled, isFormPage, isLegalPage, isPolicyAgreementPage]);
 
-  const handleApply = () => {
-    navigate('/apply');
+  const handleNavigateToAgreement = () => {
+    navigate('/legal-agreement');
   };
 
   const scrollToSection = (sectionId: string) => {
-    if (isFormPage) {
+    // If on a page that isn't the main landing page, redirect to landing then scroll
+    if (isFormPage || isLegalPage || isPolicyAgreementPage) {
       window.location.href = `/#${sectionId}`;
       return;
     }
@@ -41,7 +49,18 @@ export const Navbar: React.FC = () => {
     }
   };
 
-  const shouldUseDarkVariant = isFormPage || scrolled;
+  // Determine if the dark variant of the navbar should be used
+  // Always use dark variant for form page or legal pages.
+  // For other pages (e.g. landing), use dark variant only when scrolled.
+  const shouldUseDarkVariant = isFormPage || isLegalPage || isPolicyAgreementPage || scrolled;
+
+  // Reset scrolled state if navigating to a page that forces dark variant, 
+  // so that if we navigate away from it, scroll behavior is fresh.
+  useEffect(() => {
+    if (isFormPage || isLegalPage || isPolicyAgreementPage) {
+      setScrolled(false); // Reset scroll state, as it's overridden
+    }
+  }, [isFormPage, isLegalPage, isPolicyAgreementPage]);
 
   return (
     <header
@@ -99,7 +118,7 @@ export const Navbar: React.FC = () => {
             variant={shouldUseDarkVariant ? 'primary' : 'outline'}
             size="sm"
             className={!shouldUseDarkVariant ? 'border-white text-white hover:bg-white/10' : ''}
-            onClick={handleApply}
+            onClick={handleNavigateToAgreement}
           >
             Get My Quote
           </Button>

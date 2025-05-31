@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from '../../../../common/components/Container/Container';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin as LinkedIn } from 'lucide-react';
 import { Logo } from '../../../../common/components/Logo/Logo';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -84,8 +85,9 @@ export const Footer: React.FC = () => {
         <div className="border-t border-gray-800 pt-8 text-gray-400 text-sm flex flex-col md:flex-row justify-between items-center">
           <p>&copy; {currentYear} Unify Capital. All rights reserved.</p>
           <div className="mt-4 md:mt-0">
-            <a href="/privacy" className="hover:text-[#489094] transition-colors mr-6">Privacy Policy</a>
-            <a href="/terms" className="hover:text-[#489094] transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-[#489094] transition-colors mr-4">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-[#489094] transition-colors mr-4">Terms & Conditions</Link>
+            <Link to="/disclaimer" className="hover:text-[#489094] transition-colors">Disclaimer</Link>
           </div>
         </div>
       </Container>
