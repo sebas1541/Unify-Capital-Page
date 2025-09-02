@@ -32,8 +32,8 @@ export const Navbar: React.FC = () => {
     }
   }, [scrolled, isFormPage, isLegalPage, isPolicyAgreementPage]);
 
-  const handleNavigateToAgreement = () => {
-    navigate('/legal-agreement');
+  const handleNavigateToForm = () => {
+    navigate('/apply');
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -118,7 +118,7 @@ export const Navbar: React.FC = () => {
             variant={shouldUseDarkVariant ? 'primary' : 'outline'}
             size="sm"
             className={!shouldUseDarkVariant ? 'border-white text-white hover:bg-white/10' : ''}
-            onClick={handleNavigateToAgreement}
+            onClick={handleNavigateToForm}
           >
             Get My Quote
           </Button>

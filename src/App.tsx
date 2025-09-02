@@ -5,9 +5,7 @@ import TermsAndConditions from './features/TermsAndConditions';
 import Disclaimer from './features/Disclaimer';
 import { LandingPage } from './features/landing/components/LandingPage';
 import { FormPage } from './features/form/components/FormPage';
-import { PolicyAgreementPage } from './features/legal/PolicyAgreementPage';
 import ScrollToTop from './common/components/ScrollToTop/ScrollToTop';
-import { ProtectedRoute } from './common/components/ProtectedRoute/ProtectedRoute';
 
 function App() {
   return (
@@ -19,15 +17,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
-            <Route path="/legal-agreement" element={<PolicyAgreementPage />} />
-            <Route 
-              path="/apply" 
-              element={
-                <ProtectedRoute>
-                  <FormPage />
-                </ProtectedRoute>
-              } 
-            />
+            <Route path="/apply" element={<FormPage />} />
             <Route path="/" element={<LandingPage />} />
           </Routes>
         </main>

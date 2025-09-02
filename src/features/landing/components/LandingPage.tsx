@@ -12,8 +12,8 @@ import { Button } from '../../../common/components/Button/Button';
 export const LandingPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleNavigateToAgreement = () => {
-    navigate('/legal-agreement');
+  const handleNavigateToForm = () => {
+    navigate('/apply');
   };
 
   return (
@@ -24,7 +24,7 @@ export const LandingPage: React.FC = () => {
         title="Your Fast Track to Car Ownership"
         subtitle="At Unify Capital, we help you bridge the gap between wanting a car and owning one—fast, easy, and stress-free."
         ctaText="Get My Quote"
-        onCtaClick={handleNavigateToAgreement}
+        onCtaClick={handleNavigateToForm}
         backgroundImage="/images/photos/brice-cooper-3QsGS2Vsab4-unsplash.jpg"
       />
       
@@ -181,7 +181,7 @@ export const LandingPage: React.FC = () => {
               <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-12">
                 We've been revolutionizing the car-buying experience in Florida. Our mission is simple: remove financial barriers and help you get behind the wheel of your dream car faster.
               </p>
-              <Button size="lg" className="bg-white text-[#1c243c] hover:bg-white/90" onClick={handleNavigateToAgreement}>
+              <Button size="lg" className="bg-white text-[#1c243c] hover:bg-white/90" onClick={handleNavigateToForm}>
                 Get Started Today
               </Button>
             </div>
